@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>蓝白起始页</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="app">
+    <el-container>
+        <el-header>欢迎使用蓝白起始页</el-header>
+        <el-main>
+            <div class="demo-input-suffix">
+                <!--                <el-input-->
+                <!--                        placeholder="请输入搜索内容"-->
+                <!--                        suffix-icon="el-icon-search"-->
+                <!--                        prefix-icon="el-icon-search"-->
+                <!--                        v-model="search_input">-->
+                <!--                </el-input>-->
+                <el-input placeholder="请输入搜索内容" v-model="search_input" class="input-with-select">
+                    <el-select v-model="select" slot="prepend" placeholder="请选择">
+                        <el-option label="Baidu" value="1"></el-option>
+                        <el-option label="Google" value="2"></el-option>
+                    </el-select>
+                    <el-button slot="append" icon="el-icon-search"></el-button>
+                </el-input>
+            </div>
+        </el-main>
+        <el-footer>
+            <p class="footer">©2021 <a href="https://www.mrduanminjie.xyz" target="_blank" style="color: rgba(255,255,255,0.7);">蓝白咖啡</a> &nbsp一句话来自<a href="https://hitokoto.cn/" target="_blank" style="color: rgba(255,255,255,0.7);">一言api</a> &nbsp<a href="https://github.com/woziji2200/StartPage" target="_blank" style="color: rgba(255,255,255,0.7);">Github</a></p>
+        </el-footer>
+    </el-container>
+</div>
+
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {
+                visible: false,
+                search_input: '',
+                select: '1'
+            }
+        }
+    })
+</script>
+
+<style>
+    .el-input {
+        width: 40%;
+    }
+
+    .el-select .el-input {
+        width: 130px;
+    }
+
+    .input-with-select .el-input-group__prepend {
+        background-color: #fff;
+    }
+
+
+    .el-header, .el-footer {
+        background-color: #B3C0D1;
+        color: #333;
+        text-align: center;
+        line-height: 60px;
+    }
+
+    .el-aside {
+        background-color: #D3DCE6;
+        color: #333;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    .el-main {
+        background-color: #E9EEF3;
+        color: #333;
+        text-align: center;
+        line-height: 160px;
+    }
+
+    body > .el-container {
+        margin-bottom: 40px;
+    }
+
+    .el-container:nth-child(5) .el-aside,
+    .el-container:nth-child(6) .el-aside {
+        line-height: 260px;
+    }
+
+    .el-container:nth-child(7) .el-aside {
+        line-height: 320px;
+    }
+
+</style>
+</html>
