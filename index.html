@@ -6,34 +6,36 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 </head>
-<body>
+<body style="background-image: url(./image/cat.jpg)">
 <div id="app">
     <el-container>
         <el-header>欢迎使用蓝白起始页</el-header>
         <el-main>
             <div class="demo-input-suffix">
-                <!--                <el-input-->
-                <!--                        placeholder="请输入搜索内容"-->
-                <!--                        suffix-icon="el-icon-search"-->
-                <!--                        prefix-icon="el-icon-search"-->
-                <!--                        v-model="search_input">-->
-                <!--                </el-input>-->
-                <el-input placeholder="请输入搜索内容" v-model="search_input" class="input-with-select">
+                <el-input placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
+                          @keydown.enter.native="keydown_search(search_input)">
                     <el-select v-model="select" slot="prepend" placeholder="请选择">
                         <el-option label="Baidu" value="1"></el-option>
                         <el-option label="Google" value="2"></el-option>
                     </el-select>
-                    <el-button slot="append" icon="el-icon-search"></el-button>
+                    <el-button slot="append" icon="el-icon-search" @click="button_search(search_input)"></el-button>
                 </el-input>
             </div>
         </el-main>
         <el-footer>
-            <p class="footer">©2021 <a href="https://www.mrduanminjie.xyz" target="_blank" style="color: rgba(255,255,255,0.7);">蓝白咖啡</a> &nbsp一句话来自<a href="https://hitokoto.cn/" target="_blank" style="color: rgba(255,255,255,0.7);">一言api</a> &nbsp<a href="https://github.com/woziji2200/StartPage" target="_blank" style="color: rgba(255,255,255,0.7);">Github</a></p>
+            <div id="footerBox">© 2022 <a href="https://maorx.cn/" title="蓝白咖啡" target="_blank" class="links"
+                                          id="copyrightOwner1">蓝白咖啡</a><span> 丨 </span><span
+                    class="hideWhenBrief"><a href="https://beian.miit.gov.cn" title="工业和信息化部域名信息备案管理系统" target="_blank"
+                                             class="links">闽ICP备16025935号-2</a> 丨 <a
+                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35010202001376"
+                    title="全国互联网安全管理服务平台" target="_blank" class="links">闽公网安备35010202001376号</a> 丨 </span><a
+                    title="关于「蓝白起始页」" class="links" id="linkAbout">关于</a></div>
         </el-footer>
     </el-container>
 </div>
 
 </body>
+
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <!-- 引入组件库 -->
@@ -41,17 +43,37 @@
 <script>
     new Vue({
         el: '#app',
-        data: function () {
+        data() {
             return {
                 visible: false,
                 search_input: '',
                 select: '1'
+            };
+        },
+        methods: {
+            keydown_search(search_input) {
+                window.open("https://www.baidu.com/s?wd=" + search_input);
+            },
+            button_search(search_input) {
+                window.open("https://www.baidu.com/s?wd=" + search_input);
             }
-        }
+        },
+
     })
 </script>
 
 <style>
+    body {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+        margin: 0 0;
+        z-index: 0;
+    }
+
     .el-input {
         width: 40%;
     }
@@ -64,23 +86,19 @@
         background-color: #fff;
     }
 
-
     .el-header, .el-footer {
-        background-color: #B3C0D1;
         color: #333;
         text-align: center;
         line-height: 60px;
     }
 
     .el-aside {
-        background-color: #D3DCE6;
         color: #333;
         text-align: center;
         line-height: 200px;
     }
 
     .el-main {
-        background-color: #E9EEF3;
         color: #333;
         text-align: center;
         line-height: 160px;
