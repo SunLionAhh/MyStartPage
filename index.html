@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>蓝白起始页</title>
+    <link rel="shortcut icon" href="./image/coffee_favicon.ico" type="image/x-icon">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="css/index.css">
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
-<body style="background-image: url(./image/cat.jpg)">
+<body>
 <div id="app">
     <el-container>
-        <el-header>欢迎使用蓝白起始页</el-header>
+        <el-header>
+            <p class="clock_time">{{ time }}</p>
+        </el-header>
         <el-main>
             <div class="demo-input-suffix">
                 <el-input placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
@@ -26,51 +28,68 @@
             </div>
         </el-main>
         <el-footer>
-            <div id="footerBox">© 2022 <a href="https://maorx.cn/" title="蓝白咖啡" target="_blank" class="links"
-                                          id="copyrightOwner1">蓝白咖啡</a><span> 丨 </span><span
-                    class="hideWhenBrief"><a href="https://beian.miit.gov.cn" title="工业和信息化部域名信息备案管理系统" target="_blank"
-                                             class="links">闽ICP备16025935号-2</a> 丨 <a
-                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=35010202001376"
-                    title="全国互联网安全管理服务平台" target="_blank" class="links">闽公网安备35010202001376号</a> 丨 </span><a
-                    title="关于「蓝白起始页」" class="links" id="linkAbout">关于</a></div>
+            <div>
+                © 2022 <a href="https://maorx.cn/">蓝白咖啡</a>
+                丨 <a href="https://beian.miit.gov.cn">闽ICP备16025935号-1</a>
+            </div>
         </el-footer>
     </el-container>
 </div>
 
 </body>
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./js/vue.js"></script>
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script src="./js/element-ui.js"></script>
 <script>
     new Vue({
         el: '#app',
         data() {
             return {
-                visible: false,
+                time: "",
                 search_input: '',
                 select: '1',
             };
-
         },
         methods: {
-            keydown_search(select, search_input) {
-                // todo 这里注意 select === 1 这样的写法是错误的！！！！！！！！！！！！
-                if (select === "1") {
-                    window.open("https://www.baidu.com/s?wd="+search_input);
-                } else if (select==="2"){
-                    window.open("https://www.google.com/search?q="+search_input);
+            getTime() {
+                setInterval(() => {
+                    this.$data.time = new Date().toLocaleTimeString("Chinese", {hour: "2-digit", minute: "2-digit"});
+                }, 1000)
+            },
+            setCookie(cname) {
+                document.cookie = "select=" + cname;
+            },
+            getCookie(cname) {
+                let name = cname + "=";
+                let ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i].trim();
+                    if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
                 }
+                return "";
+            },
+            common_search_option(select, search_input) {
+                // todo 强调！注意: select === 1 这样的写法是错误的！！！ 定义的时候写的就是字符串 select: '1'
+                if (select === "1") {
+                    window.open("https://www.baidu.com/s?wd=" + search_input);
+                } else if (select === "2") {
+                    window.open("https://www.google.com/search?q=" + search_input);
+                }
+                this.setCookie(select);
+            },
+            keydown_search(select, search_input) {
+                this.common_search_option(select, search_input);
             },
             button_search(select, search_input) {
-                if (select === "1") {
-                    window.open("https://www.baidu.com/s?wd="+search_input);
-                } else if (select==="2"){
-                    window.open("https://www.google.com/search?q="+search_input);
-                }
+                this.common_search_option(select, search_input);
             },
+
+        },
+        created() {
+            this.$data.select = document.cookie.length === 0 ? "1" : this.getCookie("select");
+            this.getTime();
         },
     })
-
 </script>
 </html>

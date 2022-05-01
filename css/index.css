@@ -1,12 +1,36 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
 body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     height: 100%;
-    width: 100%;
-    margin: 0 0;
-    z-index: 0;
+    margin: 0;
+    background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F5%2F58e5a0a1a13f4.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654012222&t=33307ea98f44f7323583992a9464b45c")
+}
+.el-input-group--append .el-input__inner, .el-input-group__prepend{
+    color: blue;
+    font-weight: bolder;
+}
+.el-input-group--prepend .el-input__inner, .el-input-group__append{
+    color: blue;
+    font-weight: bolder;
+}
+#app {
+    height: 100%;
+    /*background-color: rgba(0,0,0,0.5);*/
+
+}
+
+section {
+    height: 100%;
 }
 
 .el-input {
@@ -52,3 +76,17 @@ body > .el-container {
     line-height: 320px;
 }
 
+.clock_time {
+    font-size: 3em;
+    font-family: "Times New Roman", Georgia, serif;
+    color: #00ff00;
+}
+
+.el-footer > div > a {
+    text-decoration: none;
+    color: #00ff00;
+}
+
+.el-footer > div {
+    color: #00ff00;
+}
