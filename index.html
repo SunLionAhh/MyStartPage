@@ -5,6 +5,8 @@
     <title>蓝白起始页</title>
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body style="background-image: url(./image/cat.jpg)">
 <div id="app">
@@ -13,12 +15,13 @@
         <el-main>
             <div class="demo-input-suffix">
                 <el-input placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
-                          @keydown.enter.native="keydown_search(search_input)">
+                          @keydown.enter.native="keydown_search(select,search_input)">
                     <el-select v-model="select" slot="prepend" placeholder="请选择">
                         <el-option label="Baidu" value="1"></el-option>
                         <el-option label="Google" value="2"></el-option>
                     </el-select>
-                    <el-button slot="append" icon="el-icon-search" @click="button_search(search_input)"></el-button>
+                    <el-button slot="append" icon="el-icon-search"
+                               @click="button_search(select,search_input)"></el-button>
                 </el-input>
             </div>
         </el-main>
@@ -35,7 +38,6 @@
 </div>
 
 </body>
-
 <!-- 开发环境版本，包含了有帮助的命令行警告 -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 <!-- 引入组件库 -->
@@ -47,75 +49,28 @@
             return {
                 visible: false,
                 search_input: '',
-                select: '1'
+                select: '1',
             };
+
         },
         methods: {
-            keydown_search(search_input) {
-                window.open("https://www.baidu.com/s?wd=" + search_input);
+            keydown_search(select, search_input) {
+                // todo 这里注意 select === 1 这样的写法是错误的！！！！！！！！！！！！
+                if (select === "1") {
+                    window.open("https://www.baidu.com/s?wd="+search_input);
+                } else if (select==="2"){
+                    window.open("https://www.google.com/search?q="+search_input);
+                }
             },
-            button_search(search_input) {
-                window.open("https://www.baidu.com/s?wd=" + search_input);
-            }
+            button_search(select, search_input) {
+                if (select === "1") {
+                    window.open("https://www.baidu.com/s?wd="+search_input);
+                } else if (select==="2"){
+                    window.open("https://www.google.com/search?q="+search_input);
+                }
+            },
         },
-
     })
+
 </script>
-
-<style>
-    body {
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        width: 100%;
-        margin: 0 0;
-        z-index: 0;
-    }
-
-    .el-input {
-        width: 40%;
-    }
-
-    .el-select .el-input {
-        width: 130px;
-    }
-
-    .input-with-select .el-input-group__prepend {
-        background-color: #fff;
-    }
-
-    .el-header, .el-footer {
-        color: #333;
-        text-align: center;
-        line-height: 60px;
-    }
-
-    .el-aside {
-        color: #333;
-        text-align: center;
-        line-height: 200px;
-    }
-
-    .el-main {
-        color: #333;
-        text-align: center;
-        line-height: 160px;
-    }
-
-    body > .el-container {
-        margin-bottom: 40px;
-    }
-
-    .el-container:nth-child(5) .el-aside,
-    .el-container:nth-child(6) .el-aside {
-        line-height: 260px;
-    }
-
-    .el-container:nth-child(7) .el-aside {
-        line-height: 320px;
-    }
-
-</style>
 </html>
