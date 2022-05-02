@@ -8,7 +8,8 @@ html {
 body {
     height: 100%;
     margin: 0;
-    background-image: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F5%2F58e5a0a1a13f4.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1654012222&t=33307ea98f44f7323583992a9464b45c");
+    background-image: url("../image/bg.jpg");
+    background-position: center;
 }
 .el-input-group--append .el-input__inner, .el-input-group__prepend{
     color: blue;
