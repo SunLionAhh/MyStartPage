@@ -8,26 +8,28 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body onload="document.getElementById('search_input').focus()" >
+<body onload="document.getElementById('search_input').focus()">
 <div id="app">
     <el-container>
-        <el-main style=" text-align: center;  padding: 0;">
-            <div style="padding:250px 0 20px 0;font-size: 3em;color: #4df5ff;font-family: 'Times New Roman',serif">
+        <el-main style="text-align: center; padding: calc((898px - 295px)/2.0)  0;">
+            <div style="font-size: 3em;color: #4df5ff;font-family: 'Times New Roman',serif;">
                 Myself Page
             </div>
             <div style="padding: 20px 0">
-                <el-input id="search_input" style="font-family: 'Times New Roman',宋体,serif" placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
-                          @keydown.enter.native="keydown_search(select,search_input)">
-                    <el-select v-model="select" style="font-family: 'Times New Roman',宋体,serif"  slot="prepend" placeholder="请选择">
+                <el-input id="search_input" style="font-family: 'Times New Roman',宋体,serif" placeholder="请输入搜索内容"
+                          v-model="search_input" class="input-with-select"
+                          @keydown.enter.native="common_search_option(select,search_input)">
+                    <el-select v-model="select" style="font-family: 'Times New Roman',宋体,serif" slot="prepend"
+                               placeholder="请选择">
                         <el-option label="Baidu" style="font-family: 'Times New Roman',serif" value="1"></el-option>
                         <el-option label="Google" style="font-family: 'Times New Roman',serif" value="2"></el-option>
                         <el-option label="BiliBili" style="font-family: 'Times New Roman',serif" value="3"></el-option>
+                        <el-option label="Translation" style="font-family: 'Times New Roman',serif" value="4"></el-option>
                     </el-select>
                     <el-button slot="append" icon="el-icon-search"
-                               @click="button_search(select,search_input)"></el-button>
+                               @click="common_search_option(select,search_input)"></el-button>
                 </el-input>
             </div>
-·
             <div style="padding: 20px 0;">
                 <a href="./video.html">
                     <el-button type="primary" round><span style="">视频影音</span></el-button>
@@ -62,11 +64,14 @@
                     <el-button type="danger" round><span style="">谷歌翻译</span></el-button>
                 </a>
             </div>
+
         </el-main>
         <el-footer style=" text-align: center;  padding: 10px 0;height: max-content;">
-            <div style="color: #6b736b;">
-                <span>Copyright© 2022 <a style="text-decoration: none;color: #6b736b;font-family: 'Times New Roman', 宋体, serif" target="_blank"
-                                         href="https://www.beian.gov.cn/portal/registerSystemInfo">蓝白咖啡</a> 版权所有</span>
+            <div style="color: #6b736b;font-family: 'Times New Roman', 宋体, serif;">
+                <span>Copyright© 2022 <a
+                        style="text-decoration: none;color: #6b736b;font-family: 'Times New Roman', 宋体, serif;"
+                        target="_blank"
+                        href="https://www.beian.gov.cn/portal/registerSystemInfo">蓝白咖啡</a> 版权所有</span>
             </div>
         </el-footer>
     </el-container>
@@ -108,14 +113,10 @@
                     window.open("https://www.google.com/search?q=" + search_input);
                 } else if (select === "3") {
                     window.open("https://search.bilibili.com/all?keyword=" + search_input);
+                } else if (select === "4") {
+                    window.open("https://fanyi.baidu.com/#en/zh/" + search_input);
                 }
                 this.setCookie(select);
-            },
-            keydown_search(select, search_input) {
-                this.common_search_option(select, search_input);
-            },
-            button_search(select, search_input) {
-                this.common_search_option(select, search_input);
             },
 
         },

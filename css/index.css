@@ -11,13 +11,11 @@ body {
 }
 .el-input-group--append .el-input__inner, .el-input-group__prepend{
     color: blue;
-    /*font-weight: bolder;*/
     font-family: 'Times New Roman',宋体,serif;
     border-color: blue;
 }
 .el-input-group--prepend .el-input__inner, .el-input-group__append{
     color: blue;
-    /*font-weight: bolder;*/
     border-color: blue;
 }
 .el-button span{
@@ -38,37 +36,4 @@ section {
 
 .el-select .el-input {
     width: 130px;
-}
-
-/*.input-with-select .el-input-group__prepend {*/
-/*    background-color: #fff;*/
-/*}*/
-
-.el-footer{
-    /*margin: 10px 0;*/
-    /*height: auto !important;*/
-}
-.el-aside {
-    /*color: #333;*/
-    /*text-align: center;*/
-    /*line-height: 200px;*/
-}
-
-.el-main {
-    /*color: #333;*/
-    /*line-height: 40px;*/
-
-}
-
-.clock_time {
-
-}
-
-.el-footer > div > a {
-    /*text-decoration: none;*/
-    /*color: #6b736b;*/
-}
-
-.el-footer > div {
-    /*color: #6b736b;*/
 }
