@@ -1,8 +1,5 @@
 html {
-    margin: 0;
-    padding: 0;
     height: 100%;
-    width: 100%;
 }
 
 body {
@@ -10,16 +7,22 @@ body {
     margin: 0;
     background-image: url("../image/bg.jpg");
     background-position: center;
+    background-repeat: no-repeat;
 }
 .el-input-group--append .el-input__inner, .el-input-group__prepend{
     color: blue;
-    font-weight: bolder;
+    /*font-weight: bolder;*/
+    font-family: 'Times New Roman',宋体,serif;
     border-color: blue;
 }
 .el-input-group--prepend .el-input__inner, .el-input-group__append{
     color: blue;
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     border-color: blue;
+}
+.el-button span{
+    font-family: 宋体,serif;
+    font-weight: normal !important;
 }
 #app {
     height: 100%;
@@ -37,52 +40,35 @@ section {
     width: 130px;
 }
 
-.input-with-select .el-input-group__prepend {
-    background-color: #fff;
-}
+/*.input-with-select .el-input-group__prepend {*/
+/*    background-color: #fff;*/
+/*}*/
 
-.el-header, .el-footer {
-    color: #333;
-    text-align: center;
-    line-height: 60px;
+.el-footer{
+    /*margin: 10px 0;*/
+    /*height: auto !important;*/
 }
-
 .el-aside {
-    color: #333;
-    text-align: center;
-    line-height: 200px;
+    /*color: #333;*/
+    /*text-align: center;*/
+    /*line-height: 200px;*/
 }
 
 .el-main {
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-}
+    /*color: #333;*/
+    /*line-height: 40px;*/
 
-body > .el-container {
-    margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-    line-height: 320px;
 }
 
 .clock_time {
-    font-size: 3em;
-    font-family: "Times New Roman", Georgia, serif;
-    color: #00ff00;
+
 }
 
 .el-footer > div > a {
-    text-decoration: none;
-    color: #6b736b;
+    /*text-decoration: none;*/
+    /*color: #6b736b;*/
 }
 
 .el-footer > div {
-    color: #6b736b;
+    /*color: #6b736b;*/
 }

@@ -3,8 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>美妙音乐</title>
+    <link rel="shortcut icon" href="./image/coffee_favicon.ico" type="image/x-icon">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="css/audio.css">
 </head>
 <body>
-    <audio src="music/Horizon.mp3" loop="loop" autoplay="autoplay" controls></audio>
+<div id="audio_app">
+    <el-container>
+        <el-header style="width: 1440px;margin: 0 auto;">
+            <el-row :gutter="20">
+                <el-col :span="16" style="display: flex;justify-content: space-between;">
+                    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"
+                             @select="handleSelect">
+                        <el-menu-item index="0"><a href="./index.html">首页</a></el-menu-item>
+                        <el-menu-item index="1">推荐</el-menu-item>
+                        <el-menu-item index="2">排行榜</el-menu-item>
+                        <el-menu-item index="3">歌单</el-menu-item>
+                        <el-menu-item index="4">主播电台</el-menu-item>
+                        <el-menu-item index="5">歌手</el-menu-item>
+                        <el-menu-item index="6">新碟上架</el-menu-item>
+                        <el-menu-item index="7">即将上线</el-menu-item>
+                    </el-menu>
+                </el-col>
+                <el-col :span="8">
+                    <div style="float: right">
+                        <el-input
+                                placeholder="请输入关键词"
+                                suffix-icon="el-icon-search"
+                                v-model="input1" style="width: 190px;position: relative;top: 10px">
+                        </el-input>
+                        <span style="position: relative;top: 10px;cursor:pointer;padding: 13px 5px;margin: 0 10px">登录/注册</span>
+                    </div>
+                </el-col>
+            </el-row>
+        </el-header>
+        <el-main style="width: 1440px;margin: 20px auto;padding: 0;">
+            <div>
+                <el-empty style="height: 700px" description="网站建设中，歌曲正在马不停蹄地赶过来……"></el-empty>
+            </div>
+            <div class="block" style="width: 100%; text-align: center;">
+                <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage4"
+                        :page-sizes="[100, 200, 300, 400]"
+                        :page-size="100"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="400">
+                </el-pagination>
+            </div>
+        </el-main>
+        <el-footer style=" text-align: center;  padding: 10px 0;height: max-content;">
+            <div style="color: #6b736b;">
+                <span>Copyright© 2022 <a style="text-decoration: none;color: #6b736b" target="_blank"
+                                         href="https://www.beian.gov.cn/portal/registerSystemInfo">蓝白咖啡</a> 版权所有</span>
+            </div>
+        </el-footer>
+    </el-container>
+</div>
+
 </body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="./js/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="./js/element-ui.js"></script>
+<script>
+    new Vue({
+        el: '#audio_app',
+        data() {
+            return {
+                activeIndex: '1',
+            };
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
+            }
+        },
+        created() {
+
+        },
+    })
+</script>
 </html>

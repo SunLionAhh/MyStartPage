@@ -8,67 +8,67 @@
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body onload="document.getElementById('search_input').focus()">
+<body onload="document.getElementById('search_input').focus()" >
 <div id="app">
     <el-container>
-        <el-header>
-            <p class="clock_time">{{ time }}</p>
-        </el-header>
-        <el-main>
-            <div class="demo-input-suffix">
-                <el-input id="search_input" placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
+        <el-main style=" text-align: center;  padding: 0;">
+            <div style="padding:250px 0 20px 0;font-size: 3em;color: #4df5ff;font-family: 'Times New Roman',serif">
+                Myself Page
+            </div>
+            <div style="padding: 20px 0">
+                <el-input id="search_input" style="font-family: 'Times New Roman',宋体,serif" placeholder="请输入搜索内容" v-model="search_input" class="input-with-select"
                           @keydown.enter.native="keydown_search(select,search_input)">
-                    <el-select v-model="select" slot="prepend" placeholder="请选择">
-                        <el-option label="Baidu" value="1"></el-option>
-                        <el-option label="Google" value="2"></el-option>
+                    <el-select v-model="select" style="font-family: 'Times New Roman',宋体,serif"  slot="prepend" placeholder="请选择">
+                        <el-option label="Baidu" style="font-family: 'Times New Roman',serif" value="1"></el-option>
+                        <el-option label="Google" style="font-family: 'Times New Roman',serif" value="2"></el-option>
+                        <el-option label="BiliBili" style="font-family: 'Times New Roman',serif" value="3"></el-option>
                     </el-select>
                     <el-button slot="append" icon="el-icon-search"
                                @click="button_search(select,search_input)"></el-button>
                 </el-input>
             </div>
-            <div>
-                <el-row style="position: relative;top: -80px;">
-                    <a href="./video.html">
-                        <el-button type="primary" round><span style="font-weight: bolder">视频影音</span></el-button>
-                    </a>
-                    <a href="./audio.html">
-                        <el-button type="success" round><span style="font-weight: bolder">美妙音乐</span></el-button>
-                    </a>
-                    <a href="https://www.bilibili.com">
-                        <el-button type="info" round><span style="font-weight: bolder">哔哩哔哩</span></el-button>
-                    </a>
-                    <a href="https://cloud.ok7.icu/auth/welcome">
-                        <el-button type="warning" round><span style="font-weight: bolder">速蛙云云</span></el-button>
-                    </a>
-                    <a href="https://fanyi.baidu.com/">
-                        <el-button type="danger" round><span style="font-weight: bolder">百度翻译</span></el-button>
-                    </a>
-                </el-row>
-                <el-row style="position: relative;top: -160px;">
-                    <a href="https://www.aliyun.com/">
-                        <el-button type="primary" round><span style="font-weight: bolder">阿里云云</span></el-button>
-                    </a>
-                    <a href="https://cloud.tencent.com/">
-                        <el-button type="success" round><span style="font-weight: bolder">腾讯云云</span></el-button>
-                    </a>
-                    <a href="https://www.runoob.com/">
-                        <el-button type="info" round><span style="font-weight: bolder">菜鸟教程</span></el-button>
-                    </a>
-                    <a href="https://gitee.com/">
-                        <el-button type="warning" round><span style="font-weight: bolder">码云码云</span></el-button>
-                    </a>
-                    <a href="https://translate.google.cn/">
-                        <el-button type="danger" round><span style="font-weight: bolder">谷歌翻译</span></el-button>
-                    </a>
-                </el-row>
-
+·
+            <div style="padding: 20px 0;">
+                <a href="./video.html">
+                    <el-button type="primary" round><span style="">视频影音</span></el-button>
+                </a>
+                <a href="./audio.html">
+                    <el-button type="success" round><span style="">美妙音乐</span></el-button>
+                </a>
+                <a href="https://www.bilibili.com">
+                    <el-button type="info" round><span style="">哔哩哔哩</span></el-button>
+                </a>
+                <a href="https://youtube.com">
+                    <el-button type="warning" round><span style="">油管频道</span></el-button>
+                </a>
+                <a href="https://fanyi.baidu.com/">
+                    <el-button type="danger" round><span style="">百度翻译</span></el-button>
+                </a>
+            </div>
+            <div style="padding: 20px 0">
+                <a href="https://www.aliyun.com/">
+                    <el-button type="primary" round><span style="">阿里云云</span></el-button>
+                </a>
+                <a href="https://cloud.tencent.com/">
+                    <el-button type="success" round><span style="">腾讯云云</span></el-button>
+                </a>
+                <a href="https://www.runoob.com/">
+                    <el-button type="info" round><span style="">菜鸟教程</span></el-button>
+                </a>
+                <a href="https://gitee.com/">
+                    <el-button type="warning" round><span style="">码云码云</span></el-button>
+                </a>
+                <a href="https://translate.google.cn/">
+                    <el-button type="danger" round><span style="">谷歌翻译</span></el-button>
+                </a>
             </div>
         </el-main>
-        <el-footer>
-            <div>
-                Copyright© 2022 <a href="https://github.com/SunLionAhh">蓝白咖啡</a> 版权所有
+        <el-footer style=" text-align: center;  padding: 10px 0;height: max-content;">
+            <div style="color: #6b736b;">
+                <span>Copyright© 2022 <a style="text-decoration: none;color: #6b736b;font-family: 'Times New Roman', 宋体, serif" target="_blank"
+                                         href="https://www.beian.gov.cn/portal/registerSystemInfo">蓝白咖啡</a> 版权所有</span>
             </div>
-          </el-footer>
+        </el-footer>
     </el-container>
 </div>
 
@@ -82,17 +82,12 @@
         el: '#app',
         data() {
             return {
-                time: "",
                 search_input: '',
                 select: '1',
             };
         },
         methods: {
-            getTime() {
-                setInterval(() => {
-                    this.$data.time = new Date().toLocaleTimeString("Chinese", {hour: "2-digit", minute: "2-digit"});
-                }, 1000)
-            },
+
             setCookie(cname) {
                 document.cookie = "select=" + cname;
             },
@@ -111,6 +106,8 @@
                     window.open("https://www.baidu.com/s?wd=" + search_input);
                 } else if (select === "2") {
                     window.open("https://www.google.com/search?q=" + search_input);
+                } else if (select === "3") {
+                    window.open("https://search.bilibili.com/all?keyword=" + search_input);
                 }
                 this.setCookie(select);
             },
@@ -124,7 +121,6 @@
         },
         created() {
             this.$data.select = document.cookie.length === 0 ? "1" : this.getCookie("select");
-            this.getTime();
         },
     })
 </script>
