@@ -1,0 +1,35 @@
+/*body{*/
+/*    margin: 0 auto;*/
+
+/*}*/
+
+/*.video_app{*/
+/*    width: 1440px;*/
+/*}*/
+
+.drama_img {
+
+}
+
+.el-menu.el-menu--horizontal {
+    border: 0;
+}
+
+
+.el-row {
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.el-footer > div > a {
+    text-decoration: none !important;
+    color: #6b736b;
+}
+
+.el-footer > div {
+    color: #6b736b;
+}
+.el-footer {
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+}
